@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-target=$HOME
+target=/tmp/dupaa
 mkdir -p $target
 
-function symlink() {
-  ln -s $1 $target/$2
+function install_to_target() {
+  cp -R $1 $target/$2
 }
 
 # VIM
-symlink vim .vim
-symlink vimrc .vimrc
+install_to_target vim .vim
+install_to_target vimrc .vimrc
 
 # Emacs
 which emacs && {
@@ -18,11 +18,12 @@ which emacs && {
 
 # VSCode
 which code && {
- code --install-extension zhuangtongfa.Material-theme
- code --install-extension VSpaceCode.vspacecode
- code --install-extension CoenraadS.bracket-pair-colorizer-2
- code --install-extension usernamehw.errorlens
- code --install-extension dbaeumer.vscode-eslint
- code --install-extension esbenp.prettier-vscode
+  echo "installing VSCode extensions"
+  code --install-extension zhuangtongfa.Material-theme
+  code --install-extension VSpaceCode.vspacecode
+  code --install-extension CoenraadS.bracket-pair-colorizer-2
+  code --install-extension usernamehw.errorlens
+  code --install-extension dbaeumer.vscode-eslint
+  code --install-extension esbenp.prettier-vscode
 }
 
