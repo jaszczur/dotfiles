@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-target=/tmp/dupa
+target=$HOME
 mkdir -p $target
 
 function symlink() {
@@ -10,7 +10,6 @@ function symlink() {
 # VIM
 symlink vim .vim
 symlink vimrc .vimrc
-vim +qall
 
 # Emacs
 which emacs && {
@@ -26,3 +25,4 @@ which code && {
  code --install-extension dbaeumer.vscode-eslint
  code --install-extension esbenp.prettier-vscode
 }
+
