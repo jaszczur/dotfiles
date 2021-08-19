@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-target=/tmp/dupaa
+target=${1:-$HOME}
 mkdir -p $target
 
 function install_to_target() {
