@@ -21,23 +21,18 @@
         alacritty
         bat
         carapace
-        clojure
         eza
         fzf
-        gh
         gnupg
         gnused
         mkalias
-        # neovim
         nodejs_22
         nushell
-        nixd
         obsidian
         pinentry_mac # for gnupg
         starship
-        tenv
         tmux
-        xh
+        vim
         zoxide
       ];
 
@@ -131,7 +126,10 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
 
-      users.users.jaszczur.home = "/Users/jaszczur";
+      users.users.jaszczur = {
+        name = "jaszczur";
+        home = "/Users/jaszczur";
+      };
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";

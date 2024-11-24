@@ -2,8 +2,24 @@
 
 {
   home = {
+    # username = "jaszczur";
+    # homeDirectory = /Users/jaszczur;
     stateVersion = "24.11";
-    # homeDirectory = "/Users/jaszczur";
+  };
+
+  home.packages = with pkgs; [
+    clojure
+    gh
+    nixd
+    tenv
+    ripgrep
+    rustup
+    xh
+  ];
+
+  home.file = {
+    ".config/nushell/env.nu".source = ../nushell/env.nu;
+    ".config/nushell/config.nu".source = ../nushell/config.nu;
   };
 
   programs.awscli = {
