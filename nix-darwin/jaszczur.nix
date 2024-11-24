@@ -20,6 +20,7 @@
   home.file = {
     ".config/nushell/env.nu".source = ../nushell/env.nu;
     ".config/nushell/config.nu".source = ../nushell/config.nu;
+    ".config/nushell/utils.nu".source = ../nushell/utils.nu;
   };
 
   programs.awscli = {

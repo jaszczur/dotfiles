@@ -100,6 +100,8 @@ use std "path add"
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
 
+$env.HOMEBREW_AUTO_UPDATE_SECS = 3600
+
 # zoxide
 mkdir ~/.cache/zoxide
 zoxide init nushell | save -f ~/.cache/zoxide/init.nu
