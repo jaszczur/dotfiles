@@ -1,6 +1,10 @@
-{ config, pkgs, lib, home-manager, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  home-manager,
+  ...
+}: {
   home = {
     # username = "jaszczur";
     # homeDirectory = /Users/jaszczur;
@@ -8,6 +12,7 @@
   };
 
   home.packages = with pkgs; [
+    alejandra # formatter for nixfiles
     clojure
     direnv
     gh
@@ -24,6 +29,10 @@
     ".config/nushell/utils.nu".source = ../nushell/utils.nu;
   };
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   programs.awscli = {
     enable = true;
     settings = {
@@ -34,7 +43,7 @@
     };
   };
 
-  programs.bat = import ./modules/bat.nix { inherit pkgs; };
+  programs.bat = import ./modules/bat.nix {inherit pkgs;};
 
   programs.git = {
     enable = true;
@@ -75,5 +84,4 @@
       # time.disabled = true;
     };
   };
-
 }
