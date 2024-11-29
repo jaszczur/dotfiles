@@ -709,6 +709,7 @@ require('lazy').setup({
       local nvim_lsp = require 'lspconfig'
 
       local servers = {
+        harper_ls = {},
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},

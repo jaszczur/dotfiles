@@ -15,6 +15,8 @@
     alejandra # formatter for nixfiles
     clojure
     direnv
+    emacs
+    fd
     gh
     nixd
     tenv
@@ -26,7 +28,7 @@
   home.file = {
     ".config/nushell/env.nu".source = ../nushell/env.nu;
     ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/utils.nu".source = ../nushell/utils.nu;
+    ".config/nushell/scripts".source = ../nushell/scripts;
     ".config/nvim".source = ../nvim;
   };
 

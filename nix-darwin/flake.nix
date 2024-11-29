@@ -39,11 +39,40 @@
         nushell
         obsidian
         pinentry_mac # for gnupg
+        pueue
         starship
         tmux
         vim
         zoxide
       ];
+
+      environment.launchDaemons = {
+        pueued.text = ''
+          <?xml version="1.0" encoding="UTF-8"?>
+
+          <!-- This is the plist file for the pueue daemon on macos -->
+          <!-- Place pueued.plist in ~/Library/LaunchAgents -->
+          <!-- To enable the daemon navigate into the directory `cd ~/Library/LaunchAgents` and type `launchctl load pueued.plist` -->
+          <!-- To start the daemon type `launchctl start pueued` -->
+          <!-- If you want to check that the daemon is running type `launchctl list | grep pueued` -->
+          <!-- You have to change the program location, if pueue is not installed with homebrew -->
+
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+          	<key>Label</key>
+          	<string>pueued</string>
+          	<key>ProgramArguments</key>
+          	<array>
+          		<string>${pkgs.pueue}/bin/pueued</string>
+          		<string>-vv</string>
+          	</array>
+          	<key>RunAtLoad</key>
+          	<true/>
+          </dict>
+          </plist>
+        '';
+      };
 
       fonts.packages = [
         pkgs.fira-code

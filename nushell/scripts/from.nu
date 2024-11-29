@@ -1,4 +1,4 @@
-def "from posix-exports" []: string -> record {
+export def posix-exports []: string -> record {
   lines | each { |line|
     # First remove export prefix and replace = with : for json conversion
     let entry = $line | str replace "export " "" | str replace "=" ":"
