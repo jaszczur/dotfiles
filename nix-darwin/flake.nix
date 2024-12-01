@@ -17,7 +17,7 @@
     nixpkgs,
     home-manager,
   }: let
-    configuration = {system, ...}: {
+    configuration = profile @ {system, ...}: {
       pkgs,
       config,
       ...
@@ -154,11 +154,12 @@
 
       system.defaults = {
         dock.autohide = true;
-        dock.persistent-apps = [
-          "${pkgs.alacritty}/Applications/Alacritty.app"
-          "/Applications/Firefox.app"
-          "/Applications/Slack.app"
-        ];
+        dock.persistent-apps =
+          [
+            "${pkgs.alacritty}/Applications/Alacritty.app"
+            "/Applications/Firefox.app"
+          ]
+          ++ profile.dock.apps;
         NSGlobalDomain.AppleICUForce24HourTime = true;
         NSGlobalDomain.KeyRepeat = 1;
         NSGlobalDomain.InitialKeyRepeat = 10;
@@ -208,10 +209,17 @@
       system = "aarch64-darwin";
       git.email = "piotr.jaszczyk@fortum.com";
       git.signingKey = "FFBFEEB3DB310F61";
+      dock.apps = [
+        "/Applications/Slack.app"
+      ];
     };
     darwinConfigurations."jaszczur-priv-mac" = jaszczurDarwinConfig {
       system = "x86_64-darwin";
       git.email = "piotr.jaszczyk@gmail.com";
+      dock.apps = [
+        "/Applications/Rouvy.app"
+        "/Applications/rekordbox 7/rekordbox.app"
+      ];
     };
   };
 }
