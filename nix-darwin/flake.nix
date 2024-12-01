@@ -17,7 +17,7 @@
     nixpkgs,
     home-manager,
   }: let
-    configuration = {
+    configuration = {system, ...}: {
       pkgs,
       config,
       ...
@@ -175,33 +175,43 @@
       };
 
       # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+      nixpkgs.hostPlatform = system;
     };
+    jaszczurDarwinConfig = profile @ {system, ...}:
+      nix-darwin.lib.darwinSystem {
+        modules = [
+          (configuration profile)
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.jaszczur = (import ./jaszczur.nix) profile;
+            };
+          }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = system == "aarch64-darwin";
+              user = "jaszczur";
+              autoMigrate = true;
+            };
+          }
+        ];
+      };
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."jaszczur-work-mac" = nix-darwin.lib.darwinSystem {
-      modules = [
-        configuration
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-            users.jaszczur = import ./jaszczur.nix;
-          };
-        }
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = true;
-            user = "jaszczur";
-            autoMigrate = true;
-          };
-        }
-      ];
+    darwinConfigurations."jaszczur-work-mac" = jaszczurDarwinConfig {
+      system = "aarch64-darwin";
+      git.email = "piotr.jaszczyk@fortum.com";
+      git.signingKey = "FFBFEEB3DB310F61";
+    };
+    darwinConfigurations."jaszczur-priv-mac" = jaszczurDarwinConfig {
+      system = "x86_64-darwin";
+      git.email = "piotr.jaszczyk@gmail.com";
     };
   };
 }

@@ -1,4 +1,4 @@
-{
+profile: {
   config,
   pkgs,
   lib,
@@ -48,12 +48,17 @@
 
   programs.bat = import ./modules/bat.nix {inherit pkgs;};
 
-  programs.git = {
+  programs.git = let
+    hasSigningKey = profile.git ? signingKey;
+  in {
     enable = true;
     userName = "Piotr Jaszczyk";
-    userEmail = "piotr.jaszczyk@fortum.com";
-    signing.key = "FFBFEEB3DB310F61";
-    signing.signByDefault = true;
+    userEmail = profile.git.email;
+    signing.signByDefault = hasSigningKey;
+    signing.key =
+      if hasSigningKey
+      then profile.git.signingKey
+      else null;
     aliases = {
       br = "branch";
       co = "checkout";
