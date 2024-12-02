@@ -11,19 +11,23 @@ profile: {
     stateVersion = "24.11";
   };
 
-  home.packages = with pkgs; [
-    alejandra # formatter for nixfiles
-    clojure
-    direnv
-    emacs
-    fd
-    gh
-    nixd
-    tenv
-    ripgrep
-    rustup
-    xh
-  ];
+  home.packages = with pkgs;
+    [
+      alejandra # formatter for nixfiles
+      clojure
+      # darwin.apple_sdk.frameworks.Foundation
+      # darwin.apple_sdk.frameworks.System
+      direnv
+      # emacs
+      fd
+      gh
+      nixd
+      tenv
+      ripgrep
+      rustup
+      xh
+    ]
+    ++ (builtins.attrValues darwin.apple_sdk.frameworks);
 
   home.file = {
     ".config/nushell/env.nu".source = ../nushell/env.nu;
