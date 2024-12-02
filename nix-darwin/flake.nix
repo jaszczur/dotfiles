@@ -86,10 +86,12 @@
         taps = [
           "mongodb/brew"
           "homebrew/homebrew-services"
+          # "d12frosted/emacs-plus"
         ];
         brews = [
           # "brotli" # for mongodb
           # "emacs-mac"
+          # "emacs-plus"
           # "mas"
           {
             name = "syncthing";
