@@ -86,11 +86,11 @@
         taps = [
           "mongodb/brew"
           "homebrew/homebrew-services"
+          "railwaycat/emacsmacport"
           # "d12frosted/emacs-plus"
         ];
         brews = [
           # "brotli" # for mongodb
-          # "emacs-mac"
           # "emacs-plus"
           # "mas"
           {
@@ -101,6 +101,7 @@
           # "mongodb-database-tools"
         ];
         casks = [
+          "emacs-mac"
           "firefox"
           "jetbrains-toolbox"
           "karabiner-elements"
