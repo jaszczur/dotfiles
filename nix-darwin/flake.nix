@@ -30,6 +30,7 @@
         alacritty
         bat
         carapace
+        emacs
         eza
         fzf
         gnupg
@@ -86,7 +87,7 @@
         taps = [
           "mongodb/brew"
           "homebrew/homebrew-services"
-          "railwaycat/emacsmacport"
+          # "railwaycat/emacsmacport"
           # "d12frosted/emacs-plus"
         ];
         brews = [
@@ -101,7 +102,7 @@
           # "mongodb-database-tools"
         ];
         casks = [
-          "emacs-mac"
+          # "emacs-mac"
           "firefox"
           "jetbrains-toolbox"
           "karabiner-elements"
