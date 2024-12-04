@@ -35,6 +35,7 @@
         fzf
         gnupg
         gnused
+        lua-language-server
         mkalias
         nodejs_22
         nushell
