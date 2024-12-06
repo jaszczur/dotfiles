@@ -79,7 +79,9 @@
       fonts.packages = [
         pkgs.fira-code
         pkgs.iosevka
-        (pkgs.nerdfonts.override {fonts = ["FiraCode" "Iosevka" "IosevkaTerm"];})
+        pkgs.nerd-fonts.fira-code
+        pkgs.nerd-fonts.iosevka
+        pkgs.nerd-fonts.iosevka-term
         pkgs.overpass
       ];
 
