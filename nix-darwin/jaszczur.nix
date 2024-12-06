@@ -8,7 +8,22 @@ profile: {
   home = {
     # username = "jaszczur";
     # homeDirectory = /Users/jaszczur;
+    language = {
+      base = "en_US.UTF-8";
+    };
     stateVersion = "24.11";
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      SDKROOT = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+      CC = "clang";
+      XDG_CONFIG_HOME = "/Users/jaszczur/.config";
+    };
+    shellAliases = {
+      ll = "eza -l";
+      la = "eza -a";
+      l = "eza";
+    };
   };
 
   home.packages = with pkgs;
@@ -22,6 +37,7 @@ profile: {
       fd
       gh
       nixd
+      nushell
       tenv
       ripgrep
       rustup
@@ -51,6 +67,11 @@ profile: {
   };
 
   programs.bat = import ./modules/bat.nix {inherit pkgs;};
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.git = let
     hasSigningKey = profile.git ? signingKey;
@@ -82,18 +103,17 @@ profile: {
     vimAlias = true;
   };
 
-  programs.nushell = {
-    enable = true;
-    environmentVariables = {
-    };
-  };
-
   programs.starship = {
     enable = true;
-    # enableNushellIntegration = true;
+    # enableNushellIntegration = true; # I'll do it myself
+    enableZshIntegration = true;
     settings = {
       add_newline = true;
       # time.disabled = true;
     };
+  };
+
+  programs.zsh = {
+    enable = true;
   };
 }
