@@ -18,6 +18,7 @@ profile: {
       SDKROOT = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
       CC = "clang";
       XDG_CONFIG_HOME = "/Users/jaszczur/.config";
+      AWS_REGION = "eu-west-1";
     };
     shellAliases = {
       ll = "eza -l";
