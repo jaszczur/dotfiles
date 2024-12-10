@@ -31,12 +31,12 @@ profile: {
     [
       alejandra # formatter for nixfiles
       clojure
-      # darwin.apple_sdk.frameworks.Foundation
-      # darwin.apple_sdk.frameworks.System
+      coursier # for Scala
       direnv
       # emacs
       fd
       gh
+      # lorri
       nixd
       nushell
       tenv
@@ -51,6 +51,22 @@ profile: {
     ".config/nushell/config.nu".source = ../nushell/config.nu;
     ".config/nushell/scripts".source = ../nushell/scripts;
     ".config/nvim".source = ../nvim;
+  };
+
+  launchd.agents = {
+    # "lorri" = {
+    #   enable = true;
+    #   config = {
+    #     Label = "com.github.target.lorri";
+    #     WorkingDirectory = "/Users/jaszczur";
+    #     EnvironmentVariables = {"TMPDIR" = "/private/tmp";};
+    #     KeepAlive = true;
+    #     RunAtLoad = true;
+    #     StandardOutPath = "/private/tmp/lorri.log";
+    #     StandardErrorPath = "/private/tmp/lorri.log";
+    #     ProgramArguments = ["${pkgs.lorri}/bin/lorri" "daemon"];
+    #   };
+    # };
   };
 
   nixpkgs.config = {
@@ -96,6 +112,11 @@ profile: {
         autoSetupRemote = true;
       };
     };
+  };
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk21;
   };
 
   programs.neovim = {

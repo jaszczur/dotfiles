@@ -96,6 +96,7 @@ use std "path add"
 # path add ($env.CARGO_HOME | path join "bin")
 # path add ($env.HOME | path join ".local" "bin")
 # $env.PATH = ($env.PATH | uniq)
+path add "/Users/jaszczur/Library/Application Support/Coursier/bin"
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')

@@ -35,6 +35,7 @@
         fzf
         gnupg
         gnused
+        jdk21
         lua-language-server
         mkalias
         nodejs_22
