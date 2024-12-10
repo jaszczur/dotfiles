@@ -34,6 +34,7 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'J', 'T', opts)
 
 -- Undo/redo
 vim.keymap.set('n', 'l', 'u', opts)
+vim.keymap.set('n', 'L', 'U', opts)
 vim.keymap.set('x', 'l', ':<C-U>undo<CR>', opts)
 vim.keymap.set('n', 'gl', 'u', opts)
 vim.keymap.set('x', 'gl', ':<C-U>undo<CR>', opts)
