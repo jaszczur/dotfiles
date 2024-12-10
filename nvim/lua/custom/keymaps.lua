@@ -24,6 +24,14 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'I', 'L', opts)
 vim.keymap.set({ 'n', 'x', 'o' }, 'u', 'i', opts)
 vim.keymap.set({ 'n', 'x', 'o' }, 'U', 'I', opts)
 
+-- Use t-f-j rotation
+vim.keymap.set({ 'n', 'x', 'o' }, 'f', 'e', opts)
+vim.keymap.set({ 'n', 'x', 'o' }, 'F', 'E', opts)
+vim.keymap.set({ 'n', 'x', 'o' }, 't', 'f', opts)
+vim.keymap.set({ 'n', 'x', 'o' }, 'T', 'F', opts)
+vim.keymap.set({ 'n', 'x', 'o' }, 'j', 't', opts)
+vim.keymap.set({ 'n', 'x', 'o' }, 'J', 'T', opts)
+
 -- Undo/redo
 vim.keymap.set('n', 'l', 'u', opts)
 vim.keymap.set('x', 'l', ':<C-U>undo<CR>', opts)
