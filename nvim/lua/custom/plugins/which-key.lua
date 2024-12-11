@@ -44,7 +44,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>b', group = '[B]uffer' },
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
-      { '<leader>e', group = '[E]val' },
+      -- { '<leader>e', group = '[E]val' }, - moved to localleader
       { '<leader>f', group = '[F]ile' },
       { '<leader>g', group = '[G]it' },
       { '<leader>gh', group = 'Git [H]unk', mode = { 'n', 'v' } },
