@@ -964,6 +964,7 @@ use ~/.cache/starship/init.nu
 source ~/.cache/zoxide/init.nu
 source ~/.cache/carapace/init.nu
 
+use authinfo.nu
 use from.nu
 use task.nu
 

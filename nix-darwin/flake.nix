@@ -29,7 +29,6 @@
       environment.systemPackages = with pkgs; [
         alacritty
         bat
-        bitwarden-cli
         carapace
         emacs
         eza
