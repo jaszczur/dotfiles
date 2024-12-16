@@ -50,7 +50,7 @@ profile: {
     ".config/nushell/env.nu".source = ../nushell/env.nu;
     ".config/nushell/config.nu".source = ../nushell/config.nu;
     ".config/nushell/scripts".source = ../nushell/scripts;
-    ".config/nvim".source = ../nvim;
+    # ".config/nvim".source = ../nvim; # it's pain in the ass to manage it by nix
   };
 
   launchd.agents = {
