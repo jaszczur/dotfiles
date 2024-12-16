@@ -54,6 +54,11 @@ vim.keymap.set('n', '<leader>bn', ':enew <CR>', { desc = 'New buffer' })
 vim.keymap.set('n', '<leader>bp', ':b# <CR>', { desc = '[B]uffer [P]revious' })
 vim.keymap.set('n', '<leader><TAB>', ':b# <CR>', { desc = '[B]uffer [P]revious' })
 
+-- Code
+vim.keymap.set('n', '<leader>cn', ':cnext <CR>', { desc = 'Next quickfix item' })
+vim.keymap.set('n', '<leader>cp', ':cnext <CR>', { desc = 'Previous quickfix item' })
+vim.keymap.set('n', '<leader>ce', ':cnext <CR>', { desc = 'Previous quickfix item' })
+
 -- Windows
 vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>wn', '<C-w>j', { desc = 'Move focus to the down window' })
