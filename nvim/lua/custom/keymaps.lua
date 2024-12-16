@@ -59,6 +59,8 @@ vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Move focus to the left win
 vim.keymap.set('n', '<leader>wn', '<C-w>j', { desc = 'Move focus to the down window' })
 vim.keymap.set('n', '<leader>we', '<C-w>k', { desc = 'Move focus to the up window' })
 vim.keymap.set('n', '<leader>wi', '<C-w>l', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<leader>wr', '<C-w>r', { desc = 'Rotate windows down/right' })
+vim.keymap.set('n', '<leader>wR', '<C-w>R', { desc = 'Rotate windows up/left' })
 vim.keymap.set('n', '<leader>wd', ':q <CR>', { desc = 'Close current window' })
 
 -- Files
