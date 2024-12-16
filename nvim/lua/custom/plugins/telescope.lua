@@ -1,3 +1,47 @@
+-- Slightly advanced example of overriding default behavior and theme
+local find_in_curr_buff = function()
+  -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end
+
+local live_grep_opened_files = function()
+  require('telescope.builtin').live_grep {
+    grep_open_files = true,
+    prompt_title = 'Live Grep in Open Files',
+  }
+end
+
+-- Search project files
+local live_grep_from_project_git_root = function()
+  local function is_git_repo()
+    vim.fn.system 'git rev-parse --is-inside-work-tree'
+
+    return vim.v.shell_error == 0
+  end
+
+  local get_git_root = function()
+    local dot_git_path = vim.fn.finddir('.git', '.;')
+    return vim.fn.fnamemodify(dot_git_path, ':h')
+  end
+
+  local opts = {}
+
+  if is_git_repo() then
+    opts = {
+      cwd = get_git_root(),
+    }
+  end
+
+  require('telescope.builtin').live_grep(opts)
+end
+
+local search_neovim_config = function()
+  require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
+end
+
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -133,57 +177,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = '[R]ecent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>pf', builtin.git_files, { desc = '[P]roject [F]iles ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.commands, { desc = 'Vim commands' })
-
-    -- Slightly advanced example of overriding default behavior and theme
-    local find_in_curr_buff = function()
-      -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
-    end
-
     vim.keymap.set('n', '<leader>/', find_in_curr_buff, { desc = '[/] Fuzzily search in current buffer' })
     vim.keymap.set('n', '<leader>ss', find_in_curr_buff, { desc = '[/] Fuzzily search in current buffer' })
-
-    -- It's also possible to pass additional configuration options.
-    --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    vim.keymap.set('n', '<leader>s/', function()
-      builtin.live_grep {
-        grep_open_files = true,
-        prompt_title = 'Live Grep in Open Files',
-      }
-    end, { desc = '[S]earch [/] in Open Files' })
-
-    -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[S]earch [N]eovim files' })
-
-    -- Search project files
-    local live_grep_from_project_git_root = function()
-      local function is_git_repo()
-        vim.fn.system 'git rev-parse --is-inside-work-tree'
-
-        return vim.v.shell_error == 0
-      end
-
-      local get_git_root = function()
-        local dot_git_path = vim.fn.finddir('.git', '.;')
-        return vim.fn.fnamemodify(dot_git_path, ':h')
-      end
-
-      local opts = {}
-
-      if is_git_repo() then
-        opts = {
-          cwd = get_git_root(),
-        }
-      end
-
-      require('telescope.builtin').live_grep(opts)
-    end
-
+    vim.keymap.set('n', '<leader>s/', live_grep_opened_files, { desc = '[S]earch [/] in Open Files' })
+    vim.keymap.set('n', '<leader>sn', search_neovim_config, { desc = '[S]earch [N]eovim files' })
     vim.keymap.set('n', '<leader>sp', live_grep_from_project_git_root, { desc = '[S]earch [p]roject files' })
   end,
 }
