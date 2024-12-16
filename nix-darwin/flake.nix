@@ -110,6 +110,7 @@
           "firefox"
           "jetbrains-toolbox"
           "karabiner-elements"
+          "mqtt-explorer"
           "mullvad-browser"
           "simplex"
         ];
