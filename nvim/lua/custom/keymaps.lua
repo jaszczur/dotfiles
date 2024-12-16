@@ -46,7 +46,15 @@ vim.keymap.set('n', '<C-e>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-i>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ Doomizations ]]
---
+
+-- Top level menu
+vim.keymap.set('n', '<leader>!', function()
+  vim.cmd.split()
+  vim.cmd.term()
+  vim.api.nvim_win_set_height(0, 10)
+  vim.cmd.startinsert()
+end, { desc = 'Open terminal' })
+
 -- Buffers
 -- vim.keymap.set('n', '<leader>bd', ':e#<bar>bd # <CR>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>bd', ':Bdelete <CR>', { desc = 'Close buffer' })
