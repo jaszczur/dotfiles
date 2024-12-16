@@ -42,6 +42,59 @@ local search_neovim_config = function()
   require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
 end
 
+--
+-- Live multigrep from "Advent of Neovim"
+--
+local live_multigrep_command = function(prompt)
+  if not prompt or prompt == '' then
+    return nil
+  end
+
+  local pieces = vim.split(prompt, '  ')
+  local args = { 'rg' }
+
+  if pieces[1] then
+    table.insert(args, '-e')
+    table.insert(args, pieces[1])
+  end
+
+  if pieces[2] then
+    table.insert(args, '-g')
+    table.insert(args, pieces[2])
+  end
+
+  return vim
+    .iter({
+      args,
+      { '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' },
+    })
+    :flatten()
+    :totable()
+end
+
+local live_multigrep = function(opts)
+  local pickers = require 'telescope.pickers'
+  local finders = require 'telescope.finders'
+  opts = opts or {}
+  opts.cwd = opts.cwd or vim.uv.cwd()
+
+  local finder = finders.new_async_job {
+    command_generator = live_multigrep_command,
+    entry_maker = require('telescope.make_entry').gen_from_vimgrep(opts),
+    cwd = opts.cwd,
+  }
+
+  pickers
+    .new(opts, {
+      finder = finder,
+      prompt_title = 'Grep project files, filter by filename glob',
+      debounce = 100,
+      previewer = require('telescope.config').values.grep_previewer(opts),
+      sorter = require('telescope.sorters').empty(),
+    })
+    :find()
+end
+
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -65,35 +118,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-
-    -- Nice git frontend
-    {
-      'NeogitOrg/neogit',
-      config = true,
-      keys = {
-        {
-          '<leader>gg',
-          function()
-            require('neogit').open {}
-          end,
-          desc = 'Git status',
-        },
-        {
-          '<leader>gs',
-          function()
-            require('neogit').open {}
-          end,
-          desc = 'Git status',
-        },
-        {
-          '<leader>gc',
-          function()
-            require('neogit').open {}
-          end,
-          desc = 'Git commit',
-        },
-      },
-    },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -167,7 +191,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sS', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+    vim.keymap.set('n', '<leader>sg', live_multigrep, { desc = '[S]earch by [G]rep with fname glob' })
+    vim.keymap.set('n', '<leader>sG', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
