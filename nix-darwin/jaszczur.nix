@@ -31,6 +31,7 @@ profile: {
     [
       alejandra # formatter for nixfiles
       clojure
+      clang-tools # for clang-format used by openscad-lsp
       coursier # for Scala
       direnv
       # emacs
@@ -39,6 +40,7 @@ profile: {
       # lorri
       nixd
       nushell
+      openscad-lsp
       tenv
       ripgrep
       rustup

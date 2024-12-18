@@ -112,6 +112,7 @@
           "karabiner-elements"
           "mqtt-explorer"
           "mullvad-browser"
+          "openscad"
           "simplex"
         ];
         masApps = {

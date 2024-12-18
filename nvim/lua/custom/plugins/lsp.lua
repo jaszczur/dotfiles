@@ -284,16 +284,18 @@ return {
       -- Non Mason configuration
       local non_mason_servers = {
         gleam = {},
-
         ocamllsp = {
           settings = {
             codelens = { enable = true },
             inlayHints = { enable = true },
           },
         },
-
+        openscad_lsp = {
+          settings = {
+            fmt_style = 'LLVM',
+          },
+        },
         nushell = {},
-
         nixd = {},
       }
       for srv_name, srv_conf in pairs(non_mason_servers) do
