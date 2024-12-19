@@ -48,12 +48,8 @@ vim.keymap.set('n', '<C-i>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Doomizations ]]
 
 -- Top level menu
-vim.keymap.set('n', '<leader>!', function()
-  vim.cmd.split()
-  vim.cmd.term()
-  vim.api.nvim_win_set_height(0, 10)
-  vim.cmd.startinsert()
-end, { desc = 'Open terminal' })
+vim.keymap.set({ 'n', 't' }, '<leader>!', ':Floaterminal <CR>', { desc = 'Open terminal' })
+vim.keymap.set({ 'n', 't' }, '<leader>tt', ':Floaterminal <CR>', { desc = 'Toggle terminal' })
 
 -- Buffers
 -- vim.keymap.set('n', '<leader>bd', ':e#<bar>bd # <CR>', { desc = 'Close buffer' })
