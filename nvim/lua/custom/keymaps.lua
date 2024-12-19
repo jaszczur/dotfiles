@@ -77,3 +77,4 @@ vim.keymap.set('n', '<leader>fs', ':w <CR>', { desc = 'Save file' })
 
 -- Quit
 vim.keymap.set('n', '<leader>qq', ':wqa <CR>', { desc = 'Save all and exit' })
+vim.keymap.set('n', '<leader>qQ', ':qa! <CR>', { desc = 'Exit without saving' })
