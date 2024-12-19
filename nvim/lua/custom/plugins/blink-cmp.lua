@@ -1,8 +1,23 @@
+local copilot_plugin = {
+  'zbirenbaum/copilot.lua',
+  cmd = 'Copilot',
+  event = 'InsertEnter',
+  opts = {
+    suggestion = { enabled = false },
+    panel = { enabled = false },
+  },
+}
+
 return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
-  -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets', 'giuxtaposition/blink-cmp-copilot' },
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    {
+      'giuxtaposition/blink-cmp-copilot',
+      dependencies = { copilot_plugin },
+    },
+  },
 
   -- use a release tag to download pre-built binaries
   version = 'v0.*',
@@ -11,8 +26,6 @@ return {
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
 
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
   opts = {
     -- 'default' for mappings similar to built-in completion
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
@@ -37,17 +50,28 @@ return {
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
+      completion = {
+        enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      },
       providers = {
         copilot = {
-          name = 'copilot',
+          name = 'Copilot',
           module = 'blink-cmp-copilot',
-          score_offset = 100,
+          score_offset = 0,
           async = true,
         },
       },
-      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      -- default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
       -- optionally disable cmdline completions
       -- cmdline = {},
+    },
+
+    completion = {
+      menu = {
+        draw = {
+          columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' }, { 'source_name' } },
+        },
+      },
     },
 
     -- experimental signature help support
