@@ -108,6 +108,7 @@
         casks = [
           # "emacs-mac"
           "firefox"
+          "freecad"
           "jetbrains-toolbox"
           "karabiner-elements"
           "mqtt-explorer"
