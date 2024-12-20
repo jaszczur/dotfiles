@@ -107,6 +107,7 @@
         ];
         casks = [
           # "emacs-mac"
+          "bambu-studio"
           "firefox"
           "freecad"
           "jetbrains-toolbox"
@@ -115,6 +116,7 @@
           "mullvad-browser"
           "openscad"
           "simplex"
+          "vlc"
         ];
         masApps = {
           "Bitwarden" = 1352778147;
