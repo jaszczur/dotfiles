@@ -50,9 +50,9 @@ return {
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
-      completion = {
-        enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-      },
+      -- completion = {
+      --   enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      -- },
       providers = {
         copilot = {
           name = 'Copilot',
@@ -61,7 +61,7 @@ return {
           async = true,
         },
       },
-      -- default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
       -- optionally disable cmdline completions
       -- cmdline = {},
     },
