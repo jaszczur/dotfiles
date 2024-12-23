@@ -59,17 +59,28 @@ vim.keymap.set('n', '<leader>bp', ':b# <CR>', { desc = '[B]uffer [P]revious' })
 vim.keymap.set('n', '<leader><TAB>', ':b# <CR>', { desc = '[B]uffer [P]revious' })
 
 -- Code
+vim.keymap.set('n', '<leader>cq', ':clist <CR>', { desc = 'Open [Q]uickfix list' })
 vim.keymap.set('n', '<leader>cn', ':cnext <CR>', { desc = 'Next quickfix item' })
-vim.keymap.set('n', '<leader>cp', ':cnext <CR>', { desc = 'Previous quickfix item' })
-vim.keymap.set('n', '<leader>ce', ':cnext <CR>', { desc = 'Previous quickfix item' })
+vim.keymap.set('n', '<leader>cp', ':cprev <CR>', { desc = 'Previous quickfix item' })
+vim.keymap.set('n', '<leader>ce', ':cprev <CR>', { desc = 'Previous quickfix item' })
 
 -- Windows
+vim.keymap.set('n', '<leader>ws', ':split <CR>', { desc = 'New window below' })
+vim.keymap.set('n', '<leader>wv', ':vsplit <CR>', { desc = 'New window right' })
+
 vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>wn', '<C-w>j', { desc = 'Move focus to the down window' })
 vim.keymap.set('n', '<leader>we', '<C-w>k', { desc = 'Move focus to the up window' })
 vim.keymap.set('n', '<leader>wi', '<C-w>l', { desc = 'Move focus to the right window' })
+
+vim.keymap.set('n', '<leader>wH', '<C-w>H', { desc = 'Move window to left' })
+vim.keymap.set('n', '<leader>wN', '<C-w>J', { desc = 'Move window down' })
+vim.keymap.set('n', '<leader>wE', '<C-w>K', { desc = 'Move window up' })
+vim.keymap.set('n', '<leader>wI', '<C-w>L', { desc = 'Move window to right' })
+
 vim.keymap.set('n', '<leader>wr', '<C-w>r', { desc = 'Rotate windows down/right' })
 vim.keymap.set('n', '<leader>wR', '<C-w>R', { desc = 'Rotate windows up/left' })
+
 vim.keymap.set('n', '<leader>wd', ':q <CR>', { desc = 'Close current window' })
 
 -- Files
