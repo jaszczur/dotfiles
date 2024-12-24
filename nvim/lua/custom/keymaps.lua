@@ -53,7 +53,6 @@ vim.keymap.set({ 'n', 't' }, '<leader>tt', ':Floaterminal <CR>', { desc = 'Toggl
 
 -- Buffers
 -- vim.keymap.set('n', '<leader>bd', ':e#<bar>bd # <CR>', { desc = 'Close buffer' })
-vim.keymap.set('n', '<leader>bd', ':Bdelete <CR>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>bn', ':enew <CR>', { desc = 'New buffer' })
 vim.keymap.set('n', '<leader>bp', ':b# <CR>', { desc = '[B]uffer [P]revious' })
 vim.keymap.set('n', '<leader><TAB>', ':b# <CR>', { desc = '[B]uffer [P]revious' })
