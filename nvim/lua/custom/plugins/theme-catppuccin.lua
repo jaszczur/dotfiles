@@ -15,6 +15,7 @@ return {
         enabled = true,
       },
     },
+    transparent_background = true,
   },
   init = function()
     -- local hour = tonumber(os.date('%H', os.time()))
