@@ -53,6 +53,7 @@ profile: {
     ".config/nushell/config.nu".source = ../nushell/config.nu;
     ".config/nushell/scripts".source = ../nushell/scripts;
     ".config/ghostty/config".source = ../ghostty/config;
+    ".tmux.conf".source = ../tmux/tmux.conf;
     # ".config/nvim".source = ../nvim; # it's pain in the ass to manage it by nix
   };
 
