@@ -1,94 +1,29 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
-local action = wezterm.action
+
+local apperance = require 'apperance'
+local keybindings = require 'keybindings'
+local neovim = require 'neovim'
+local workspaces = require 'workspaces'
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- Apperance
-local scheme_for_appearance = function(appearance)
-  if appearance:find 'Dark' then
-    return 'Catppuccin Macchiato'
-  else
-    return 'Catppuccin Latte'
-  end
-end
-config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
-config.font = wezterm.font 'IosevkaTerm Nerd Font'
--- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-config.font_size = 16.0
-config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
-}
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 20
-config.hide_tab_bar_if_only_one_tab = false
-config.use_fancy_tab_bar = false
-config.max_fps = 120
-
 -- Default shell
+-- I don't want to use nushell as default login shell (mainly b/c of lack of some glue code, ie. for setting up Nix). That's why I'm starting nu inside zsh - 💩 but works.
 config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/run/current-system/sw/bin/nu' }
 
+-- Apperance
+apperance.apply_to_config(config)
+
 -- Keybindings
-config.leader = { key = 'a', mods = 'CTRL' }
-config.keys = {
-  {
-    key = '"',
-    mods = 'LEADER',
-    action = action.SplitVertical { domain = 'CurrentPaneDomain' },
-  },
-
-  {
-    key = '%',
-    mods = 'LEADER',
-    action = action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-  },
-  {
-    key = 'c',
-    mods = 'LEADER',
-    action = action.SpawnTab 'CurrentPaneDomain',
-  },
-
-  {
-    key = 'p',
-    mods = 'LEADER',
-    action = action.ActivateTabRelative(-1),
-  },
-  {
-    key = 'n',
-    mods = 'LEADER',
-    action = action.ActivateTabRelative(1),
-  },
-  { key = '[', mods = 'LEADER', action = action.ActivateCopyMode },
-}
+keybindings.apply_to_config(config)
 
 -- Neovim integration setup
-local smart_splits = wezterm.plugin.require 'https://github.com/mrjones2014/smart-splits.nvim'
-smart_splits.apply_to_config(config, {
-  direction_keys = { 'h', 'n', 'e', 'i' },
-  modifiers = {
-    move = 'CTRL',
-    resize = 'CTRL|SHIFT',
-  },
-  log_level = 'info',
-})
+neovim.apply_to_config(config)
 
--- Session manager
-local workspace_switcher = wezterm.plugin.require 'https://github.com/MLFlexer/smart_workspace_switcher.wezterm'
-workspace_switcher.apply_to_config(config)
-local on_workspace_updated = function(window, workspace)
-  local gui_win = window:gui_window()
-  local base_path = string.gsub(workspace, '(.*[/\\])(.*)', '%2')
-  gui_win:set_right_status(wezterm.format {
-    { Foreground = { Color = '#a6da95' } },
-    { Text = '  ' .. base_path .. '  ' },
-  })
-end
-wezterm.on('smart_workspace_switcher.workspace_switcher.chosen', on_workspace_updated)
-wezterm.on('smart_workspace_switcher.workspace_switcher.created', on_workspace_updated)
+-- Workspace manager
+workspaces.apply_to_config(config)
 
 -- and finally, return the configuration to wezterm
 return config
