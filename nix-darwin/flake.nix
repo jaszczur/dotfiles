@@ -110,6 +110,7 @@
           "bambu-studio"
           "firefox"
           "freecad"
+          "ghostty"
           "jetbrains-toolbox"
           "karabiner-elements"
           "mqtt-explorer"
@@ -169,7 +170,8 @@
         dock.autohide = true;
         dock.persistent-apps =
           [
-            "${pkgs.alacritty}/Applications/Alacritty.app"
+            # "${pkgs.alacritty}/Applications/Alacritty.app"
+            "/Applications/Ghostty.app"
             "/Applications/Firefox.app"
           ]
           ++ profile.dock.apps;

@@ -1,0 +1,5 @@
+font-family = "IosevkaTerm Nerd Font"
+font-size = 16.0
+window-padding-color = extend
+theme = catppuccin-macchiato
+background-opacity = 0.75
