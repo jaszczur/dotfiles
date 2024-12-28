@@ -46,6 +46,7 @@
         starship
         tmux
         vim
+        wezterm
         zoxide
       ];
 

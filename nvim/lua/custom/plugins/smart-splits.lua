@@ -5,7 +5,13 @@ return {
     local smart_splits = require 'smart-splits'
     smart_splits.setup {
       default_amount = 5,
+      resize_mode = {
+        resize_keys = { 'h', 'n', 'e', 'i' },
+      },
+      multiplexer_integration = 'wezterm',
+      log_level = 'trace',
     }
+
     local keymap = vim.keymap
 
     keymap.set('n', '<C-h>', smart_splits.move_cursor_left)

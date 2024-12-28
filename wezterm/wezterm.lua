@@ -15,6 +15,7 @@ local scheme_for_appearance = function(appearance)
 end
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 config.font = wezterm.font 'IosevkaTerm Nerd Font'
+-- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.font_size = 16.0
 config.window_padding = {
   left = 0,
@@ -22,7 +23,7 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
-config.window_background_opacity = 0.80
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 20
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
@@ -66,26 +67,12 @@ config.keys = {
 
 -- Neovim integration setup
 local smart_splits = wezterm.plugin.require 'https://github.com/mrjones2014/smart-splits.nvim'
--- you can put the rest of your Wezterm config here
 smart_splits.apply_to_config(config, {
-  -- the default config is here, if you'd like to use the default keys,
-  -- you can omit this configuration table parameter and just use
-  -- smart_splits.apply_to_config(config)
-
-  -- directional keys to use in order of: left, down, up, right
   direction_keys = { 'h', 'n', 'e', 'i' },
-  -- if you want to use separate direction keys for move vs. resize, you
-  -- can also do this:
-  -- direction_keys = {
-  --   move = { 'h', 'j', 'k', 'l' },
-  --   resize = { 'LeftArrow', 'DownArrow', 'UpArrow', 'RightArrow' },
-  -- },
-  -- modifier keys to combine with direction_keys
   modifiers = {
-    move = 'CTRL', -- modifier to use for pane movement, e.g. CTRL+h to move left
-    resize = 'META', -- modifier to use for pane resize, e.g. META+h to resize to the left
+    move = 'CTRL',
+    resize = 'CTRL|SHIFT',
   },
-  -- log level to use: info, warn, error
   log_level = 'info',
 })
 
