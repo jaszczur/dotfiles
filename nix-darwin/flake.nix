@@ -118,6 +118,7 @@
           "openscad"
           "simplex"
           "vlc"
+          "wezterm"
         ];
         masApps = {
           "Bitwarden" = 1352778147;
@@ -171,7 +172,8 @@
         dock.persistent-apps =
           [
             # "${pkgs.alacritty}/Applications/Alacritty.app"
-            "/Applications/Ghostty.app"
+            # "/Applications/Ghostty.app"
+            "/Applications/WezTerm.app"
             "/Applications/Firefox.app"
           ]
           ++ profile.dock.apps;
