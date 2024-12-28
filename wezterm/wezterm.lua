@@ -22,9 +22,11 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.80
+config.macos_window_background_blur = 20
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
+config.max_fps = 120
 
 -- Default shell
 config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/run/current-system/sw/bin/nu' }
