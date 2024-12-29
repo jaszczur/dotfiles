@@ -1,5 +1,5 @@
 {
-  description = "Jaszczur nix-darwin system flake";
+  description = "Jaszczur system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -220,6 +220,19 @@
           }
         ];
       };
+      jaszczurLinuxConfig = profile @ { system, ...}: let 
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [
+            (import ./jaszczur-linux.nix) profile
+          ];
+      };
+
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
@@ -238,6 +251,10 @@
         "/Applications/Rouvy.app"
         "/Applications/rekordbox 7/rekordbox.app"
       ];
+    };
+    homeConfigurations."silentio" = jaszczurLinuxConfig {
+      system = "x86_64-linux";
+      git.email = "piotr.jaszczyk@gmail.com";
     };
   };
 }

@@ -7,7 +7,7 @@ profile: {
 }: {
   home = {
     # username = "jaszczur";
-    # homeDirectory = /Users/jaszczur;
+    # homeDirectory = profile.homeDirectory;
     language = {
       base = "en_US.UTF-8";
     };
@@ -45,8 +45,8 @@ profile: {
       ripgrep
       rustup
       xh
-    ]
-    ++ (builtins.attrValues darwin.apple_sdk.frameworks);
+    ];
+    # ++ if profile.system == "linux" ... (builtins.attrValues darwin.apple_sdk.frameworks);
 
   home.file = {
     ".config/nushell/env.nu".source = ../nushell/env.nu;
