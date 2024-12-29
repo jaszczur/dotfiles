@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jaszczur";
@@ -17,10 +20,12 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
 
-  home.packages = with pkgs; [
-    bambu-studio
-    freecad
-  ] ++ (import ./modules/packages.nix) pkgs;
+  home.packages = with pkgs;
+    [
+      # bambu-studio
+      # freecad
+    ]
+    ++ (import ./modules/packages.nix) pkgs;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
