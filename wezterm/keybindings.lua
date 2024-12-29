@@ -8,12 +8,12 @@ M.apply_to_config = function(config)
   local keys = {
     {
       key = '"',
-      mods = 'LEADER',
+      mods = 'LEADER|SHIFT',
       action = action.SplitVertical { domain = 'CurrentPaneDomain' },
     },
     {
       key = '%',
-      mods = 'LEADER',
+      mods = 'LEADER|SHIFT',
       action = action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
     {
