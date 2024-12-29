@@ -5,13 +5,18 @@ local apperance = require 'apperance'
 local keybindings = require 'keybindings'
 local neovim = require 'neovim'
 local workspaces = require 'workspaces'
+local utils = require 'utils'
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- Default shell
 -- I don't want to use nushell as default login shell (mainly b/c of lack of some glue code, ie. for setting up Nix). That's why I'm starting nu inside zsh - 💩 but works.
-config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/run/current-system/sw/bin/nu' }
+if utils.is_darwin() then
+  config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/run/current-system/sw/bin/nu' }
+else
+  config.default_prog = { '/usr/bin/zsh', '-c', '/usr/bin/nu' }
+end
 
 -- Apperance
 apperance.apply_to_config(config)
