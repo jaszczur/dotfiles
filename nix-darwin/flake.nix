@@ -229,7 +229,8 @@
           # Specify your home configuration modules here, for example,
           # the path to your home.nix.
           modules = [
-            (import ./jaszczur-linux.nix) profile
+            # (import ./jaszczur-linux.nix) profile
+            ./jaszczur-linux.nix
           ];
       };
 

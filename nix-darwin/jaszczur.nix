@@ -27,36 +27,10 @@ profile: {
     };
   };
 
-  home.packages = with pkgs;
-    [
-      alejandra # formatter for nixfiles
-      clojure
-      clang-tools # for clang-format used by openscad-lsp
-      coursier # for Scala
-      direnv
-      # emacs
-      fd
-      gh
-      # lorri
-      nixd
-      nushell
-      openscad-lsp
-      tenv
-      ripgrep
-      rustup
-      xh
-    ];
-    # ++ if profile.system == "linux" ... (builtins.attrValues darwin.apple_sdk.frameworks);
+  home.packages = (import ./modules/packages.nix) pkgs;
+    # ++ (builtins.attrValues darwin.apple_sdk.frameworks);
 
-  home.file = {
-    ".config/nushell/env.nu".source = ../nushell/env.nu;
-    ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/scripts".source = ../nushell/scripts;
-    ".config/ghostty/config".source = ../ghostty/config;
-    # ".config/wezterm".source = ../wezterm;
-    # ".config/nvim".source = ../nvim; # it's pain in the ass to manage it by nix
-    ".tmux.conf".source = ../tmux/tmux.conf;
-  };
+  home.file = (import ./modules/files.nix) {};
 
   launchd.agents = {
     # "lorri" = {
@@ -95,30 +69,6 @@ profile: {
     enableZshIntegration = true;
   };
 
-  programs.git = let
-    hasSigningKey = profile.git ? signingKey;
-  in {
-    enable = true;
-    userName = "Piotr Jaszczyk";
-    userEmail = profile.git.email;
-    signing.signByDefault = hasSigningKey;
-    signing.key =
-      if hasSigningKey
-      then profile.git.signingKey
-      else null;
-    aliases = {
-      br = "branch";
-      co = "checkout";
-      ci = "commit";
-      st = "status";
-    };
-    extraConfig = {
-      push = {
-        autoSetupRemote = true;
-      };
-    };
-  };
-
   programs.java = {
     enable = true;
     package = pkgs.jdk21;
@@ -143,4 +93,29 @@ profile: {
   programs.zsh = {
     enable = true;
   };
+  
+  programs.git = let
+    hasSigningKey = profile.git ? signingKey;
+  in {
+    enable = true;
+    userName = "Piotr Jaszczyk";
+    userEmail = profile.git.email;
+    signing.signByDefault = hasSigningKey;
+    signing.key =
+      if hasSigningKey
+      then profile.git.signingKey
+      else null;
+    aliases = {
+      br = "branch";
+      co = "checkout";
+      ci = "commit";
+      st = "status";
+    };
+    extraConfig = {
+      push = {
+        autoSetupRemote = true;
+      };
+    };
+  };
+
 }
