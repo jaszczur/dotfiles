@@ -18,7 +18,11 @@ local config = wezterm.config_builder()
 --   config.default_prog = { '/usr/bin/zsh', '-c', '/usr/bin/nu' }
 -- end
 
-config.default_prog = { '/home/jaszczur/.nix-profile/bin/zsh', '-c', '/home/jaszczur/.nix-profile/bin/nu' }
+if utils.is_darwin() then
+  config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/etc/profiles/per-user/jaszczur/bin/nu' }
+else
+  config.default_prog = { '/home/jaszczur/.nix-profile/bin/zsh', '-c', '/home/jaszczur/.nix-profile/bin/nu' }
+end
 
 -- Apperance
 apperance.apply_to_config(config)
