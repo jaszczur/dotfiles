@@ -123,6 +123,7 @@
         ];
         masApps = {
           "Bitwarden" = 1352778147;
+          "Brother iPrint&Scan" = 1193539993;
           "Slack" = 803453959;
           "Telegram" = 747648890;
         };
@@ -220,20 +221,19 @@
           }
         ];
       };
-      jaszczurLinuxConfig = profile @ { system, ...}: let 
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+    jaszczurLinuxConfig = profile @ {system, ...}: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            # (import ./jaszczur-linux.nix) profile
-            ./jaszczur-linux.nix
-          ];
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          # (import ./jaszczur-linux.nix) profile
+          ./jaszczur-linux.nix
+        ];
       };
-
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
