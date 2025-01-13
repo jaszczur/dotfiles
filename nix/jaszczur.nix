@@ -28,7 +28,7 @@ profile: {
   };
 
   home.packages = (import ./modules/packages.nix) pkgs;
-    # ++ (builtins.attrValues darwin.apple_sdk.frameworks);
+  # ++ (builtins.attrValues darwin.apple_sdk.frameworks);
 
   home.file = (import ./modules/files.nix) {};
 
@@ -86,6 +86,7 @@ profile: {
     enableZshIntegration = true;
     settings = {
       add_newline = true;
+      aws.disabled = true;
       # time.disabled = true;
     };
   };
@@ -93,7 +94,7 @@ profile: {
   programs.zsh = {
     enable = true;
   };
-  
+
   programs.git = let
     hasSigningKey = profile.git ? signingKey;
   in {
@@ -117,5 +118,4 @@ profile: {
       };
     };
   };
-
 }

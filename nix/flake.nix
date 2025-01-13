@@ -117,6 +117,7 @@
           "mqtt-explorer"
           "mullvad-browser"
           "openscad"
+          "rectangle"
           "simplex"
           "vlc"
           "wezterm"
