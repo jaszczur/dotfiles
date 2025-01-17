@@ -301,6 +301,7 @@ return {
         },
         nushell = {},
         nixd = {},
+        zls = {},
       }
       for srv_name, srv_conf in pairs(non_mason_servers) do
         require('lspconfig')[srv_name].setup(srv_conf)

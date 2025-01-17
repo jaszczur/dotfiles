@@ -816,7 +816,10 @@ alias el = eza -l
 alias ea = eza -a
 alias ela = eza -la
 
-source ~/.nu_scripts/themes/nu-themes/catppuccin-macchiato.nu
+use ~/.nu_scripts/themes/nu-themes/catppuccin-macchiato.nu
+use ~/.nu_scripts/themes/nu-themes/catppuccin-latte.nu
+catppuccin-macchiato set color_config
+
 use ~/.cache/starship/init.nu
 source ~/.cache/zoxide/init.nu
 source ~/.cache/carapace/init.nu

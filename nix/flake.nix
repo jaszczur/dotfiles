@@ -47,6 +47,7 @@
         tmux
         vim
         wezterm
+        watchexec
         zoxide
       ];
 
