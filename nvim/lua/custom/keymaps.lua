@@ -64,6 +64,11 @@ vim.keymap.set('n', '<leader>cn', ':cnext <CR>', { desc = 'Next quickfix item' }
 vim.keymap.set('n', '<leader>cp', ':cprev <CR>', { desc = 'Previous quickfix item' })
 vim.keymap.set('n', '<leader>ce', ':cprev <CR>', { desc = 'Previous quickfix item' })
 
+-- Lazy
+vim.keymap.set('n', '<leader>ll', ':Lazy show<CR>', { desc = '[L]azy show' })
+vim.keymap.set('n', '<leader>lu', ':Lazy update<CR>', { desc = '[L]azy [u]pdate' })
+vim.keymap.set('n', '<leader>lu', ':Lazy sync<CR>', { desc = '[L]azy [s]ync' })
+
 -- Windows
 vim.keymap.set('n', '<leader>ws', ':split <CR>', { desc = 'New window below' })
 vim.keymap.set('n', '<leader>wv', ':vsplit <CR>', { desc = 'New window right' })

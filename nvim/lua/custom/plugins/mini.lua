@@ -42,6 +42,11 @@ return {
         return '%2l:%-2v'
       end
 
+      -- Mini operators for graw (replace word with register) and others
+      -- Unfortunately conflicts with gr (lsp go to references) so I need to tweek LSP config accordingly
+      local operators = require 'mini.operators'
+      operators.setup()
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
