@@ -122,6 +122,7 @@
           "simplex"
           "vlc"
           "wezterm"
+          "zen-browser"
         ];
         masApps = {
           "Bitwarden" = 1352778147;
