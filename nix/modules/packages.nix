@@ -1,21 +1,36 @@
 {pkgs, ...}:
 with pkgs; [
   alejandra # formatter for nixfiles
-  clojure
+  bat
+  carapace
   clang-tools # for clang-format used by openscad-lsp
+  clojure
   coursier # for Scala
   direnv
-  # emacs
+  emacs
+  eza
   fd
+  fzf
   gh
+  gnupg
+  jdk21
   # lorri
+  lua-language-server
+  mkalias
   nixd
+  nodejs_22
   nushell
+  obsidian
   ollama
   openscad-lsp
-  tenv
+  pueue
   ripgrep
+  starship
+  tenv
+  watchexec
+  wezterm
   xh
+  zoxide
 
   #rust
   bacon

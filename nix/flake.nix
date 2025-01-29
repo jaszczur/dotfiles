@@ -27,28 +27,11 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
-        alacritty
-        bat
-        carapace
-        emacs
-        eza
-        fzf
         gnupg
         gnused
-        jdk21
-        lua-language-server
-        mkalias
-        nodejs_22
-        nushell
-        obsidian
         pinentry_mac # for gnupg
-        pueue
-        starship
         tmux
         vim
-        wezterm
-        watchexec
-        zoxide
       ];
 
       environment.launchAgents = {
