@@ -162,7 +162,7 @@
             # "${pkgs.alacritty}/Applications/Alacritty.app"
             # "/Applications/Ghostty.app"
             "/Applications/WezTerm.app"
-            "/Applications/Firefox.app"
+            "/Applications/Zen Browser.app"
           ]
           ++ profile.dock.apps;
         NSGlobalDomain.AppleICUForce24HourTime = true;
