@@ -5,8 +5,19 @@ return {
       require('lsp_lines').setup()
       vim.diagnostic.config {
         virtual_text = false,
-        virtual_lines = true,
+        virtual_lines = {
+          only_current_line = false,
+        },
       }
     end,
+    keys = {
+      {
+        '<leader>tv',
+        function()
+          require('lsp_lines').toggle()
+        end,
+        desc = 'Toggle [v]irtual lines',
+      },
+    },
   },
 }

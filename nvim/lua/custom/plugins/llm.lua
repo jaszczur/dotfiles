@@ -25,7 +25,7 @@ return {
             chat = true,
             command = false,
             model = {
-              model = 'deepseek-r1:7b',
+              model = 'deepseek-r1:14b',
               temperature = 0.6,
             },
             system_prompt = '',
