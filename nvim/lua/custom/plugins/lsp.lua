@@ -232,6 +232,7 @@ return {
                 -- "component",
                 'server',
               },
+              ['napi-derive'] = { 'napi' },
             },
           },
         },

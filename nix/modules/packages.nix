@@ -23,6 +23,7 @@ with pkgs; [
   obsidian
   ollama
   openscad-lsp
+  pnpm
   pueue
   ripgrep
   starship
