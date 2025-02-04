@@ -827,4 +827,5 @@ source ~/.cache/carapace/init.nu
 use authinfo.nu
 use from.nu
 use task.nu
+use theme.nu
 
