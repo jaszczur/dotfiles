@@ -23,7 +23,6 @@ with pkgs; [
   nushell
   obsidian
   ollama
-  opam
   openscad-lsp
   pnpm
   pueue
