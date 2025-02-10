@@ -303,6 +303,7 @@ return {
 
       -- Non Mason configuration
       local non_mason_servers = {
+        kotlin_language_server = {},
         gleam = {},
         ocamllsp = {
           settings = {

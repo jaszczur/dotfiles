@@ -14,6 +14,7 @@ with pkgs; [
   gh
   gnupg
   jdk21
+  kotlin-language-server
   # lorri
   lua-language-server
   mkalias
@@ -22,6 +23,7 @@ with pkgs; [
   nushell
   obsidian
   ollama
+  opam
   openscad-lsp
   pnpm
   pueue
@@ -31,6 +33,7 @@ with pkgs; [
   watchexec
   wezterm
   xh
+  yt-dlp
   zoxide
 
   #rust
@@ -39,4 +42,8 @@ with pkgs; [
   leptosfmt
   rustup
   trunk
+
+  #zig
+  zig
+  zls
 ]
