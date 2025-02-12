@@ -24,6 +24,7 @@ profile: {
       ll = "eza -l";
       la = "eza -a";
       l = "eza";
+      ngit = "nvim -c \":lua require('neogit').open()\"";
     };
   };
 

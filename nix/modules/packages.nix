@@ -2,6 +2,7 @@
 with pkgs; [
   alejandra # formatter for nixfiles
   bat
+  bottom
   carapace
   clang-tools # for clang-format used by openscad-lsp
   clojure
@@ -13,6 +14,7 @@ with pkgs; [
   fzf
   gh
   gnupg
+  htop
   jdk21
   kotlin-language-server
   # lorri
@@ -45,4 +47,8 @@ with pkgs; [
   #zig
   zig
   zls
+
+  # installed for ocaml stuff
+  # gmp
+  # pkgconf
 ]
