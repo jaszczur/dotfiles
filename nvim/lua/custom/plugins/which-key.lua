@@ -41,6 +41,8 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
+      { '<leader>a', group = '[A]I tools' },
+      { '<leader>at', group = '[T]ranslate' },
       { '<leader>b', group = '[B]uffer' },
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
@@ -52,7 +54,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>l', group = '[L]azy' },
       { '<leader>n', group = '[N]otes' },
       { '<leader>o', group = '[O]pen tool' },
-      { '<leader>oc', group = '[O]pen AI [C]hat' },
       { '<leader>p', group = '[P]roject' },
       { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
