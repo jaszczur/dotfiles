@@ -45,6 +45,7 @@ with pkgs; [
   trunk
 
   #zig
+  minisign
   zig
   zls
 

@@ -8,6 +8,7 @@ profile: {
   home = {
     # username = "jaszczur";
     # homeDirectory = profile.homeDirectory;
+    sessionPath = ["$HOME/.local/bin"];
     language = {
       base = "en_US.UTF-8";
     };
