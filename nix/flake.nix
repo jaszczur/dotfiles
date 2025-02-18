@@ -162,6 +162,7 @@
             # "${pkgs.alacritty}/Applications/Alacritty.app"
             # "/Applications/Ghostty.app"
             "/Applications/WezTerm.app"
+            "/Applications/Brave Browser.app"
             "/Applications/Zen Browser.app"
           ]
           ++ profile.dock.apps;
