@@ -19,6 +19,7 @@ with pkgs; [
   kotlin-language-server
   # lorri
   lua-language-server
+  luarocks
   mkalias
   nixd
   nodejs_22
