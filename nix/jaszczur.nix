@@ -50,10 +50,6 @@ profile: {
     # };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   programs.awscli = {
     enable = true;
     settings = {
