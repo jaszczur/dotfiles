@@ -167,6 +167,7 @@
             "/Applications/WezTerm.app"
             "/Applications/Brave Browser.app"
             "/Applications/Zen Browser.app"
+            "/Applications/Perplexity.app"
           ]
           ++ profile.dock.apps;
         NSGlobalDomain.AppleICUForce24HourTime = true;
