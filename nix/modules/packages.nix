@@ -50,7 +50,7 @@ with pkgs; [
   zig
   zls
 
-  # installed for ocaml stuff
+  # installed for ocaml stuff but using native package manager (homebrew for Mac)
   # gmp
   # pkgconf
 ]

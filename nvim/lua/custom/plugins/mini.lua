@@ -43,9 +43,12 @@ return {
       end
 
       -- Mini operators for graw (replace word with register) and others
-      -- Unfortunately conflicts with gr (lsp go to references) so I need to tweek LSP config accordingly
+      -- It conflicts with gr (lsp go to references) and gx (netrw open) so need to tweak config a little bit
       local operators = require 'mini.operators'
-      operators.setup()
+      operators.setup {
+        exchange = { prefix = 'gX' },
+        replace = { prefix = 'gR' },
+      }
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim

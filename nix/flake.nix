@@ -87,6 +87,8 @@
             name = "syncthing";
             # restart_service = "changed";
           }
+          "gmp"
+          "pkgconf"
           # "mongodb-community@8.0"
           # "mongodb-database-tools"
         ];
@@ -110,6 +112,7 @@
         masApps = {
           "Bitwarden" = 1352778147;
           "Brother iPrint&Scan" = 1193539993;
+          "Perplexity" = 6714467650;
           "Slack" = 803453959;
           "Telegram" = 747648890;
         };
