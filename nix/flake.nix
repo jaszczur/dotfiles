@@ -133,7 +133,7 @@
 
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
-      security.pam.enableSudoTouchIdAuth = true;
+      security.pam.services.sudo_local.touchIdAuth = true;
 
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
