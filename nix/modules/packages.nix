@@ -7,6 +7,7 @@ with pkgs; [
   clang-tools # for clang-format used by openscad-lsp
   clojure
   coursier # for Scala
+  deno
   direnv
   emacs
   eza

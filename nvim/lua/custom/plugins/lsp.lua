@@ -262,12 +262,12 @@ return {
           },
         },
         tailwindcss = {},
-        -- denols = {
-        --   root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
-        -- },
+        denols = {
+          root_dir = nvim_lsp.util.root_pattern 'deno.lock',
+        },
         ts_ls = {
-          -- root_dir = nvim_lsp.util.root_pattern 'package.json',
-          -- single_file_support = false,
+          root_dir = nvim_lsp.util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
+          single_file_support = false,
         },
         jdtls = {},
       }
