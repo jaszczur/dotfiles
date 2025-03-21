@@ -109,6 +109,7 @@ zoxide init nushell | save -f ~/.cache/zoxide/init.nu
 
 # starship
 mkdir ~/.cache/starship
+$env.STARSHIP_LOG = "error"
 starship init nu | save -f ~/.cache/starship/init.nu
 
 # Completion via carapace
