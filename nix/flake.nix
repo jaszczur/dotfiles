@@ -95,7 +95,6 @@
         casks = [
           # "emacs-mac"
           "bambu-studio"
-          "firefox"
           "freecad"
           "ghostty"
           "jetbrains-toolbox"
@@ -166,7 +165,7 @@
             # "/Applications/Ghostty.app"
             "/Applications/WezTerm.app"
             "/Applications/Brave Browser.app"
-            "/Applications/Zen Browser.app"
+            # "/Applications/Zen Browser.app"
             "/Applications/Perplexity.app"
           ]
           ++ profile.dock.apps;
