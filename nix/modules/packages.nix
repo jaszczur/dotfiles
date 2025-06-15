@@ -7,7 +7,7 @@ with pkgs; [
   clang-tools # for clang-format used by openscad-lsp
   clojure
   coursier # for Scala
-  deno
+  # deno # too old version, need to use deno provided installer
   direnv
   emacs
   eza

@@ -292,11 +292,30 @@ return {
           },
         },
         tailwindcss = {},
-        ts_ls = {
-          root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
-          single_file_support = false,
-        },
         jdtls = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              configurationSources = { 'flake8' },
+              plugins = {
+                flake8 = {
+                  enabled = false,
+                  ignore = { 'E501', 'E231' },
+                  maxLineLength = 88,
+                },
+                black = { enabled = true },
+                autopep8 = { enabled = false },
+                mccabe = { enabled = false },
+                pycodestyle = {
+                  enabled = false,
+                  ignore = { 'E501', 'E231' },
+                  maxLineLength = 88,
+                },
+                pyflakes = { enabled = false },
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -336,10 +355,17 @@ return {
       local non_mason_servers = {
         denols = {
           -- Need to disable conflicting LSP servers until https://github.com/neovim/nvim-lspconfig/issues/3728 is fixed
+          -- enable = false,
+          -- single_file_support = false,
+          -- autostart = false,
+          root_dir = require('lspconfig').util.root_pattern 'deno.lock',
+        },
+        ts_ls = {
+          -- Need to disable conflicting LSP servers until https://github.com/neovim/nvim-lspconfig/issues/3728 is fixed
           enable = false,
           single_file_support = false,
           autostart = false,
-          root_dir = require('lspconfig').util.root_pattern 'deno.lock',
+          root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
         },
         kotlin_language_server = {},
         gleam = {},
