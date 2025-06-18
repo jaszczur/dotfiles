@@ -358,13 +358,15 @@ return {
           -- enable = false,
           -- single_file_support = false,
           -- autostart = false,
+          workspace_required = true,
           root_dir = require('lspconfig').util.root_pattern 'deno.lock',
         },
         ts_ls = {
           -- Need to disable conflicting LSP servers until https://github.com/neovim/nvim-lspconfig/issues/3728 is fixed
-          enable = false,
-          single_file_support = false,
-          autostart = false,
+          -- enable = false,
+          -- single_file_support = false,
+          -- autostart = false,
+          workspace_required = true,
           root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
         },
         kotlin_language_server = {},
