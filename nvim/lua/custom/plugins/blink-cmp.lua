@@ -1,22 +1,9 @@
-local copilot_plugin = {
-  'zbirenbaum/copilot.lua',
-  cmd = 'Copilot',
-  event = 'InsertEnter',
-  opts = {
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-  },
-}
-
 return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
   dependencies = {
     'rafamadriz/friendly-snippets',
-    {
-      'giuxtaposition/blink-cmp-copilot',
-      dependencies = { copilot_plugin },
-    },
+    'olimorris/codecompanion.nvim',
   },
 
   -- use a release tag to download pre-built binaries
@@ -53,15 +40,8 @@ return {
       -- completion = {
       --   enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
       -- },
-      providers = {
-        copilot = {
-          name = 'Copilot',
-          module = 'blink-cmp-copilot',
-          score_offset = 0,
-          async = true,
-        },
-      },
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      providers = {},
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion' },
       -- optionally disable cmdline completions
       -- cmdline = {},
     },

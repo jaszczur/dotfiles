@@ -91,7 +91,6 @@
           "pkgconf"
           # "mongodb-community@8.0"
           # "mongodb-database-tools"
-          "uv"
         ];
         casks = [
           # "emacs-mac"

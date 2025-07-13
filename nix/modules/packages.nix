@@ -33,6 +33,7 @@ with pkgs; [
   ripgrep
   starship
   tenv
+  uv
   watchexec
   wezterm
   xh
