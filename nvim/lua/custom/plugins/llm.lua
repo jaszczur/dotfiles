@@ -40,6 +40,12 @@ return {
         ':CodeCompanion<CR>',
         desc = '[A]I [p]rompt',
       },
+      {
+        '<leader>ai',
+        ':CodeCompanion ',
+        desc = '[A]I [p]rompt',
+        mode = { 'v', 'x' },
+      },
     },
     opts = {
       strategies = {
