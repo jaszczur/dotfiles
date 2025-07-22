@@ -1,0 +1,10 @@
+{
+  "egen": {
+    "prefix": "egen",
+    "body": [
+      "Effect.gen(function* () {",
+      "  ${1:implementation}",
+      "})"
+    ]
+  }
+}
