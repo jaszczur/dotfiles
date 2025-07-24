@@ -54,4 +54,6 @@ with pkgs; [
   # installed for ocaml stuff but using native package manager (homebrew for Mac)
   # gmp
   # pkgconf
+
+  docker-client
 ]

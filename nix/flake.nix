@@ -91,6 +91,8 @@
           "pkgconf"
           # "mongodb-community@8.0"
           # "mongodb-database-tools"
+
+          "colima" # Docker Desktop alternative (vm with docker service, no cli client)
         ];
         casks = [
           # "emacs-mac"
