@@ -19,9 +19,9 @@ local config = wezterm.config_builder()
 -- end
 
 if utils.is_darwin() then
-  config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/etc/profiles/per-user/jaszczur/bin/nu' }
+  config.default_prog = { '/etc/profiles/per-user/jaszczur/bin/zsh', '-c', '/etc/profiles/per-user/jaszczur/bin/fish' }
 else
-  config.default_prog = { '/home/jaszczur/.nix-profile/bin/zsh', '-c', '/home/jaszczur/.nix-profile/bin/nu' }
+  config.default_prog = { '/home/jaszczur/.nix-profile/bin/zsh', '-c', '/home/jaszczur/.nix-profile/bin/fish' }
 end
 
 -- Apperance

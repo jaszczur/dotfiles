@@ -38,7 +38,6 @@ with pkgs; [
   wezterm
   xh
   yt-dlp
-  zoxide
 
   #rust
   bacon

@@ -65,6 +65,13 @@ profile: {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.java = {
@@ -90,6 +97,10 @@ profile: {
   };
 
   programs.zsh = {
+    enable = true;
+  };
+
+  programs.fish = {
     enable = true;
   };
 

@@ -18,7 +18,6 @@ return {
         opts = {
           use_bundled_binary = true,
         },
-
         keys = {
           {
             '<leader>am',
