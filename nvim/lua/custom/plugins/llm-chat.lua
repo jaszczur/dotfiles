@@ -4,6 +4,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
+      'j-hui/fidget.nvim',
       -- 'github/copilot.vim',
       {
         'ravitemer/mcphub.nvim',
@@ -85,5 +86,8 @@ return {
         },
       },
     },
+    init = function()
+      require('plugins.codecompanion.fidget-spinner'):init()
+    end,
   },
 }

@@ -4,6 +4,7 @@ return {
   dependencies = {
     'rafamadriz/friendly-snippets',
     'olimorris/codecompanion.nvim',
+    'fang2hou/blink-copilot',
   },
 
   -- use a release tag to download pre-built binaries
@@ -37,13 +38,15 @@ return {
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
-      -- completion = {
-      --   enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-      -- },
-      providers = {},
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion' },
-      -- optionally disable cmdline completions
-      -- cmdline = {},
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion', 'copilot' },
+      providers = {
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 0,
+          async = true,
+        },
+      },
     },
 
     completion = {
