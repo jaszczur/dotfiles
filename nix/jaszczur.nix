@@ -102,6 +102,22 @@ profile: {
 
   programs.fish = {
     enable = true;
+    functions = {
+      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
+      toggle-theme = ''
+        set current_theme $THEME
+        if test "$current_theme" = "dark"
+            set new_theme "light"
+            set theme_variant "Catppuccin Latte"
+        else
+            set new_theme "dark"
+            set theme_variant "Catppuccin Mocha"
+        end
+        fish_config theme choose "$theme_variant"
+        set -gx THEME $new_theme
+        echo "Theme switched to $new_theme ($theme_variant)"
+      '';
+    };
   };
 
   programs.git = let
@@ -131,5 +147,6 @@ profile: {
   programs.opam = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 }
