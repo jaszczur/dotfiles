@@ -4,7 +4,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'j-hui/fidget.nvim',
+      -- 'j-hui/fidget.nvim',
       -- 'github/copilot.vim',
       {
         'ravitemer/mcphub.nvim',
@@ -68,7 +68,7 @@ return {
       },
       display = {
         action_palette = {
-          provider = 'telescope',
+          provider = 'snacks',
           opts = {
             show_default_actions = true,
             show_default_prompt_library = true,
@@ -87,7 +87,7 @@ return {
       },
     },
     init = function()
-      require('plugins.codecompanion.fidget-spinner'):init()
+      -- require('plugins.codecompanion.fidget-spinner'):init()
     end,
   },
 }

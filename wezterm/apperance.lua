@@ -11,6 +11,14 @@ local scheme_for_appearance = function(appearance)
   end
 end
 
+local font_for_appearance = function(appearance)
+  if appearance:find 'Dark' then
+    return wezterm.font { family = 'IosevkaTerm Nerd Font', weight = 'Regular' }
+  else
+    return wezterm.font { family = 'IosevkaTerm Nerd Font', weight = 'Medium' }
+  end
+end
+
 local toggle_transparency_command = {
   brief = 'Toggle transparency',
   icon = 'md_circle_opacity',
@@ -28,8 +36,9 @@ local toggle_transparency_command = {
 }
 
 M.apply_to_config = function(config)
-  config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
-  config.font = wezterm.font 'IosevkaTerm Nerd Font'
+  local appearance = wezterm.gui.get_appearance()
+  config.color_scheme = scheme_for_appearance(appearance)
+  config.font = font_for_appearance(appearance)
   -- config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } -- disable ligatures
   config.font_size = 16.0
   config.window_padding = {

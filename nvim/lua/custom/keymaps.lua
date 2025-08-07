@@ -49,8 +49,8 @@ vim.keymap.set('x', 'gl', ':<C-U>undo<CR>', opts)
 -- [[ Doomizations ]]
 
 -- Top level menu
-vim.keymap.set({ 'n', 't' }, '<leader>!', ':Floaterminal <CR>', { desc = 'Open terminal' })
-vim.keymap.set({ 'n', 't' }, '<leader>tt', ':Floaterminal <CR>', { desc = 'Toggle terminal' })
+-- vim.keymap.set({ 'n', 't' }, '<leader>!', ':Floaterminal <CR>', { desc = 'Open terminal' })
+-- vim.keymap.set({ 'n', 't' }, '<leader>tt', ':Floaterminal <CR>', { desc = 'Toggle terminal' })
 
 -- Buffers
 -- vim.keymap.set('n', '<leader>bd', ':e#<bar>bd # <CR>', { desc = 'Close buffer' })

@@ -5,7 +5,7 @@ local obsidian_base = home .. '/Sync/obsidian'
 local obsidian_files = obsidian_base .. '/**.md'
 
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   -- ft = "markdown",
@@ -17,7 +17,8 @@ return {
   },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
+    -- 'nvim-telescope/telescope.nvim',
+    'folke/snacks.nvim',
   },
   opts = {
     workspaces = {
@@ -38,6 +39,13 @@ return {
     preferred_link_style = 'wiki',
     attachments = {
       img_folder = 'attachments',
+    },
+    completion = {
+      nvim_cmp = false,
+      blink = true,
+    },
+    picker = {
+      name = 'snacks.pick',
     },
 
     -- Optional, customize how note IDs are generated given an optional title.

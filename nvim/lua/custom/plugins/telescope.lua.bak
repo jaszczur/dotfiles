@@ -207,5 +207,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>s/', live_grep_opened_files, { desc = '[S]earch [/] in Open Files' })
     vim.keymap.set('n', '<leader>sn', search_neovim_config, { desc = '[S]earch [N]eovim files' })
     vim.keymap.set('n', '<leader>sp', live_grep_from_project_git_root, { desc = '[S]earch [p]roject files' })
+    vim.keymap.set('n', '<leader>mm', builtin.marks, { desc = '[M]arks search' })
   end,
 }
