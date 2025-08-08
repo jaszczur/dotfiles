@@ -21,6 +21,7 @@ return {
     'folke/snacks.nvim',
   },
   opts = {
+    legacy_commands = false,
     workspaces = {
       {
         name = 'notes',
@@ -83,27 +84,27 @@ return {
   keys = {
     {
       '<leader>nn',
-      ':ObsidianNew<CR>',
+      ':Obsidian new<CR>',
       desc = '[n]ew note',
     },
     {
       '<leader>nt',
-      ':ObsidianToday<CR>',
+      ':Obsidian today<CR>',
       desc = '[t]oday note',
     },
     {
       '<leader>ny',
-      ':ObsidianYesterday<CR>',
+      ':Obsidian yesterday<CR>',
       desc = '[y]esterday note',
     },
     {
       '<leader>nm',
-      ':ObsidianTomorrow<CR>',
+      ':Obsidian tomorrow<CR>',
       desc = 'To[m]morow note',
     },
     {
       '<leader>ns',
-      ':ObsidianSearch<CR>',
+      ':Obsidian search<CR>',
       desc = '[s]earch notes',
     },
     {
@@ -116,25 +117,25 @@ return {
     },
     {
       '<localleader>T',
-      ':ObsidianTags<CR>',
+      ':Obsidian tags<CR>',
       desc = '[T]ags',
       ft = 'markdown',
     },
     {
       '<localleader>b',
-      ':ObsidianBacklinks<CR>',
+      ':Obsidian backlinks<CR>',
       desc = '[b]acklinks to current note',
       ft = 'markdown',
     },
     {
       '<localleader>l',
-      ':ObsidianLinks<CR>',
+      ':Obsidian links<CR>',
       desc = '[l]inks in current note',
       ft = 'markdown',
     },
     {
       '<localleader>o',
-      ':ObsidianOpen<CR>',
+      ':Obsidian open<CR>',
       desc = '[o]pen in Obsidian app',
       ft = 'markdown',
     },
