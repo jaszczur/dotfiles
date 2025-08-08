@@ -136,6 +136,7 @@ profile: {
       co = "checkout";
       ci = "commit";
       st = "status";
+      yolo = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"";
     };
     extraConfig = {
       push = {
