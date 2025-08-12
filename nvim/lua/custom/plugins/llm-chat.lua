@@ -4,7 +4,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      -- 'j-hui/fidget.nvim',
+      -- 'franco-ruggeri/codecompanion-spinner.nvim',
       -- 'github/copilot.vim',
       {
         'ravitemer/mcphub.nvim',
@@ -76,6 +76,7 @@ return {
         },
       },
       extensions = {
+        -- spinner = {},
         mcphub = {
           callback = 'mcphub.extensions.codecompanion',
           opts = {
@@ -87,7 +88,7 @@ return {
       },
     },
     init = function()
-      -- require('plugins.codecompanion.fidget-spinner'):init()
+      require('plugins.codecompanion.snacks-spinner'):setup()
     end,
   },
 }

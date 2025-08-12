@@ -44,6 +44,9 @@ return {
       terminal = {
         shell = 'fish',
       },
+      lazygit = {
+        configure = true,
+      },
     },
     keys = {
       -- Top Pickers & Explorer
@@ -476,13 +479,13 @@ return {
         desc = 'Git Browse',
         mode = { 'n', 'v' },
       },
-      -- {
-      --   '<leader>gg',
-      --   function()
-      --     Snacks.lazygit()
-      --   end,
-      --   desc = 'Lazygit',
-      -- },
+      {
+        '<leader>gG',
+        function()
+          Snacks.lazygit()
+        end,
+        desc = 'Lazygit',
+      },
       {
         '<leader>un',
         function()
