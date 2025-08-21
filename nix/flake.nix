@@ -93,6 +93,7 @@
           # "mongodb-database-tools"
 
           "colima" # Docker Desktop alternative (vm with docker service, no cli client)
+          "JetBrains/utils/kotlin-lsp" # Let's test that beast ;)
         ];
         casks = [
           # "emacs-mac"

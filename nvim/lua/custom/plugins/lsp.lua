@@ -224,19 +224,6 @@ return {
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        rust_analyzer = {
-          procMacro = {
-            ignored = {
-              --  https://book.leptos.dev/getting_started/leptos_dx.html
-              leptos_macro = {
-                -- optional: --
-                -- "component",
-                'server',
-              },
-              ['napi-derive'] = { 'napi' },
-            },
-          },
-        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -317,31 +304,47 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
+            vim.lsp.enable(server_name)
+            -- require('lspconfig')[server_name].setup(server)
           end,
         },
       }
 
       -- Non Mason configuration
       local non_mason_servers = {
+        rust_analyzer = {
+          procMacro = {
+            ignored = {
+              --  https://book.leptos.dev/getting_started/leptos_dx.html
+              leptos_macro = {
+                -- optional: --
+                -- "component",
+                'server',
+              },
+              ['napi-derive'] = { 'napi' },
+            },
+          },
+        },
         denols = {
           -- Need to disable conflicting LSP servers until https://github.com/neovim/nvim-lspconfig/issues/3728 is fixed
           -- enable = false,
           -- single_file_support = false,
           -- autostart = false,
+          -- root_dir = require('lspconfig').util.root_pattern 'deno.lock',
           workspace_required = true,
-          root_dir = require('lspconfig').util.root_pattern 'deno.lock',
+          root_markers = { 'deno.lock' },
         },
         ts_ls = {
           -- Need to disable conflicting LSP servers until https://github.com/neovim/nvim-lspconfig/issues/3728 is fixed
           -- enable = false,
           -- single_file_support = false,
           -- autostart = false,
-          workspace_required = true,
-          root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
+          -- workspace_required = true,
+          -- root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
+          -- root_markers = { 'package-lock.json', 'pnpm-lock.yaml' }, -- root_dir is defined in nvim-lspconfig so root_markers will be ignored
         },
-        kotlin_language_server = {},
-        gleam = {},
+        kotlin_lsp = {},
         ocamllsp = {
           settings = {
             codelens = { enable = true },
@@ -358,7 +361,9 @@ return {
         zls = {},
       }
       for srv_name, srv_conf in pairs(non_mason_servers) do
-        require('lspconfig')[srv_name].setup(srv_conf)
+        vim.lsp.config(srv_name, srv_conf)
+        vim.lsp.enable(srv_name)
+        -- require('lspconfig')[srv_name].setup(srv_conf)
       end
     end,
   },
