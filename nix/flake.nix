@@ -76,6 +76,7 @@
         taps = [
           "mongodb/brew"
           "homebrew/homebrew-services"
+          "coursier/formulas" # for scala
           # "railwaycat/emacsmacport"
           # "d12frosted/emacs-plus"
         ];
@@ -94,6 +95,7 @@
 
           "colima" # Docker Desktop alternative (vm with docker service, no cli client)
           "JetBrains/utils/kotlin-lsp" # Let's test that beast ;)
+          "coursier/formulas/coursier" # for scala
         ];
         casks = [
           # "emacs-mac"

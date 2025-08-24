@@ -133,6 +133,9 @@ profile: {
       else null;
     delta = {
       enable = true;
+      options = {
+        theme = "catpuccin-macchiato"; # use theme configured for bat
+      };
     };
     aliases = {
       br = "branch";
