@@ -131,6 +131,9 @@ profile: {
       if hasSigningKey
       then profile.git.signingKey
       else null;
+    delta = {
+      enable = true;
+    };
     aliases = {
       br = "branch";
       co = "checkout";
