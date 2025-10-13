@@ -219,7 +219,7 @@ return {
       -- local tailwind_defaults = require('lspconfig.server_configurations.tailwindcss').default_config
 
       local servers = {
-        vale_ls = {},
+        -- vale_ls = {},
         -- harper_ls = {},
         -- clangd = {},
         -- gopls = {},
@@ -340,8 +340,8 @@ return {
           -- enable = false,
           -- single_file_support = false,
           -- autostart = false,
-          -- workspace_required = true,
-          -- root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
+          workspace_required = true,
+          root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
           -- root_markers = { 'package-lock.json', 'pnpm-lock.yaml' }, -- root_dir is defined in nvim-lspconfig so root_markers will be ignored
         },
         kotlin_lsp = {},

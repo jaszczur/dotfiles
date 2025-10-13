@@ -40,9 +40,9 @@ return { -- Autoformat
       -- is found.
       html = { 'prettierd', 'prettier', stop_after_first = true },
       css = { 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
       nix = { 'alejandra' },
     },
   },

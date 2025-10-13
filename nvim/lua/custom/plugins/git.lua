@@ -15,6 +15,13 @@ return {
         end,
         desc = 'Git status',
       },
+      {
+        '<leader>gw',
+        function()
+          require('neogit').open { 'worktree' }
+        end,
+        desc = 'Git status',
+      },
     },
   },
 }
