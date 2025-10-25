@@ -255,13 +255,14 @@ return {
           settings = {
             pylsp = {
               configurationSources = { 'flake8' },
+              signature = { formatter = 'ruff' },
               plugins = {
                 flake8 = {
                   enabled = false,
                   ignore = { 'E501', 'E231' },
                   maxLineLength = 88,
                 },
-                black = { enabled = true },
+                black = { enabled = false },
                 autopep8 = { enabled = false },
                 mccabe = { enabled = false },
                 pycodestyle = {
@@ -270,11 +271,42 @@ return {
                   maxLineLength = 88,
                 },
                 pyflakes = { enabled = false },
+                pylsp_mypy = { enabled = true },
+                ruff = { enabled = true },
               },
             },
           },
         },
       }
+
+      local pylsp = require('mason-registry').get_package 'python-lsp-server'
+      pylsp:on('install:success', function()
+        local function mason_package_path(package)
+          local path = vim.fn.resolve(vim.fn.stdpath 'data' .. '/mason/packages/' .. package)
+          return path
+        end
+
+        local path = mason_package_path 'python-lsp-server'
+        local command = path .. '/venv/bin/pip'
+        local args = {
+          'install',
+          '-U',
+          -- 'pylsp-rope',
+          -- 'python-lsp-black',
+          -- 'python-lsp-isort',
+          'python-lsp-ruff',
+          -- 'pyls-memestra',
+          'pylsp-mypy', -- type checking
+        }
+
+        require('plenary.job')
+          :new({
+            command = command,
+            args = args,
+            cwd = path,
+          })
+          :start()
+      end)
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install

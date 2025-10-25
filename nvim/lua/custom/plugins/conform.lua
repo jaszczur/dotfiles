@@ -44,6 +44,7 @@ return { -- Autoformat
       typescript = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
       nix = { 'alejandra' },
+      python = { 'ruff_format' },
     },
   },
 }
