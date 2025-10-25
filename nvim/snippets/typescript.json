@@ -1,10 +1,21 @@
 {
-  "egen": {
+  "effect-gen": {
     "prefix": "egen",
     "body": [
       "Effect.gen(function* () {",
       "  ${1:implementation}",
       "})"
+    ]
+  },
+  "effect-srv": {
+    "prefix": "esrv",
+    "body": [
+      "export class ${1:name} extends Effect.Service<${1:name}>()(\"${1:name}\", {",
+      "  dependencies: [],",
+      "  effect: Effect.gen(function* () {",
+      "    return {} as const;",
+      "  }),",
+      "}) {}"
     ]
   }
 }
