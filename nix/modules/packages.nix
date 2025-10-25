@@ -29,6 +29,7 @@ with pkgs; [
   ollama
   openscad-lsp
   pnpm
+  postgresql
   pueue
   ripgrep
   starship
