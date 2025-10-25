@@ -12,32 +12,32 @@ end)
 
 -- Colemak mappings
 
-local opts = { noremap = true, silent = true }
-
-vim.keymap.set({ 'n', 'x', 'o' }, 'n', 'j', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'e', 'k', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'i', 'l', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'N', 'J', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'E', 'K', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'I', 'L', opts)
-
-vim.keymap.set({ 'n', 'x', 'o' }, 'u', 'i', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'U', 'I', opts)
-
--- Use t-f-j rotation
-vim.keymap.set({ 'n', 'x', 'o' }, 'f', 'e', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'F', 'E', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 't', 'f', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'T', 'F', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'j', 't', opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'J', 'T', opts)
-
--- Undo/redo
-vim.keymap.set('n', 'l', 'u', opts)
-vim.keymap.set('n', 'L', 'U', opts)
-vim.keymap.set('x', 'l', ':<C-U>undo<CR>', opts)
-vim.keymap.set('n', 'gl', 'u', opts)
-vim.keymap.set('x', 'gl', ':<C-U>undo<CR>', opts)
+-- local opts = { noremap = true, silent = true }
+--
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'n', 'j', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'e', 'k', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'i', 'l', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'N', 'J', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'E', 'K', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'I', 'L', opts)
+--
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'u', 'i', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'U', 'I', opts)
+--
+-- -- Use t-f-j rotation
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'f', 'e', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'F', 'E', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 't', 'f', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'T', 'F', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'j', 't', opts)
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'J', 'T', opts)
+--
+-- -- Undo/redo
+-- vim.keymap.set('n', 'l', 'u', opts)
+-- vim.keymap.set('n', 'L', 'U', opts)
+-- vim.keymap.set('x', 'l', ':<C-U>undo<CR>', opts)
+-- vim.keymap.set('n', 'gl', 'u', opts)
+-- vim.keymap.set('x', 'gl', ':<C-U>undo<CR>', opts)
 
 --  See `:help wincmd` for a list of all window commands
 --  Now managed by smart-splits plugin

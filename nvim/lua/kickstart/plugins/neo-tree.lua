@@ -23,8 +23,8 @@ return {
           ['<leader>op'] = 'close_window',
           ['<TAB>'] = 'open',
           -- use Colemak up/down for n & e
-          ['n'] = 'noop',
-          ['e'] = 'noop',
+          -- ['n'] = 'noop',
+          -- ['e'] = 'noop',
         },
       },
     },
