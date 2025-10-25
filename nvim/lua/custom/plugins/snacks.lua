@@ -19,14 +19,14 @@ return {
         win = {
           list = {
             keys = {
-              ['n'] = 'list_down',
-              ['e'] = 'list_up',
-              ['u'] = 'focus_input',
+              -- ['n'] = 'list_down',
+              -- ['e'] = 'list_up',
+              -- ['u'] = 'focus_input',
             },
           },
           preview = {
             keys = {
-              ['u'] = 'focus_input',
+              -- ['u'] = 'focus_input',
             },
           },
         },

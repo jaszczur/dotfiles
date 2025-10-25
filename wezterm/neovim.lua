@@ -5,7 +5,7 @@ local M = {}
 
 M.apply_to_config = function(config)
   smart_splits.apply_to_config(config, {
-    direction_keys = { 'h', 'n', 'e', 'i' },
+    direction_keys = { 'h', 'j', 'k', 'j' },
     modifiers = {
       move = 'CTRL',
       resize = 'CTRL|SHIFT',
