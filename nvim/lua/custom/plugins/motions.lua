@@ -18,7 +18,7 @@ return {
       -- labels = 'tnseriaodhkbmvcxzlpufywjgq',
       modes = {
         search = {
-          enabled = false,
+          enabled = true,
         },
         char = {
           keys = {
