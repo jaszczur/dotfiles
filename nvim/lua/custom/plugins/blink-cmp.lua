@@ -22,7 +22,7 @@ return {
     -- your own keymap.
     keymap = {
       preset = 'default',
-      ['<C-e>'] = { 'select_prev', 'fallback' },
+      -- ['<C-e>'] = { 'select_prev', 'fallback' },
     },
 
     appearance = {
@@ -43,7 +43,7 @@ return {
         copilot = {
           name = 'copilot',
           module = 'blink-copilot',
-          score_offset = 0,
+          score_offset = -5,
           async = true,
         },
       },
