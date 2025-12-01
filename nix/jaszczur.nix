@@ -149,6 +149,7 @@ profile: {
         autoSetupRemote = true;
       };
     };
+    lfs.enable = true;
   };
 
   programs.opam = {
