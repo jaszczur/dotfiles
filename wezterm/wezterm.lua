@@ -30,11 +30,11 @@ apperance.apply_to_config(config)
 -- Keybindings
 keybindings.apply_to_config(config)
 
--- Neovim integration setup
-neovim.apply_to_config(config)
-
 -- Workspace manager
 workspaces.apply_to_config(config)
+
+-- Neovim integration setup
+neovim.apply_to_config(config)
 
 -- and finally, return the configuration to wezterm
 return config

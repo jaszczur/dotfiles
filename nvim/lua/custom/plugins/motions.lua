@@ -18,7 +18,7 @@ return {
       -- labels = 'tnseriaodhkbmvcxzlpufywjgq',
       modes = {
         search = {
-          enabled = true,
+          enabled = false,
         },
         char = {
           keys = {
@@ -26,8 +26,8 @@ return {
             'F',
             't',
             'T',
-            [';'] = '>',
-            [','] = '<',
+            [';'] = ';',
+            [','] = '\\',
           },
         },
       },
