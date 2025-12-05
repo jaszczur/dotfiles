@@ -55,6 +55,7 @@ return {
           columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' }, { 'source_name' } },
         },
       },
+      accept = { auto_brackets = { enabled = true } },
     },
 
     -- experimental signature help support
