@@ -38,7 +38,7 @@ with pkgs; [
   watchexec
   wezterm
   xh
-  yt-dlp
+  # yt-dlp
 
   #rust
   bacon

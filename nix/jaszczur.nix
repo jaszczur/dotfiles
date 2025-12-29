@@ -124,32 +124,33 @@ profile: {
     hasSigningKey = profile.git ? signingKey;
   in {
     enable = true;
-    userName = "Piotr Jaszczyk";
-    userEmail = profile.git.email;
+    lfs.enable = true;
     signing.signByDefault = hasSigningKey;
     signing.key =
       if hasSigningKey
       then profile.git.signingKey
       else null;
-    delta = {
-      enable = true;
-      options = {
-        theme = "catpuccin-macchiato"; # use theme configured for bat
+    settings = {
+      user.name = "Piotr Jaszczyk";
+      user.email = profile.git.email;
+      alias = {
+        br = "branch";
+        co = "checkout";
+        ci = "commit";
+        st = "status";
+        yolo = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"";
       };
-    };
-    aliases = {
-      br = "branch";
-      co = "checkout";
-      ci = "commit";
-      st = "status";
-      yolo = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"";
-    };
-    extraConfig = {
       push = {
         autoSetupRemote = true;
       };
     };
-    lfs.enable = true;
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      theme = "catpuccin-macchiato"; # use theme configured for bat
+    };
   };
 
   programs.opam = {
