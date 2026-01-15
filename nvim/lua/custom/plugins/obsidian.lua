@@ -39,7 +39,7 @@ return {
     new_notes_location = 'notes_subdir',
     preferred_link_style = 'wiki',
     attachments = {
-      img_folder = 'attachments',
+      folder = 'attachments',
     },
     completion = {
       nvim_cmp = false,
@@ -71,14 +71,14 @@ return {
       end
       return os.date '%Y%m%d%H%M%S' .. ' ' .. suffix
     end,
-    follow_url_func = function(url)
-      -- Open the URL in the default web browser.
-      if vim.loop.os_uname().sysname == 'Darwin' then
-        vim.fn.jobstart { 'open', url } -- Mac OS
-      else
-        vim.fn.jobstart { 'xdg-open', url } -- Linux
-      end
-    end,
+    -- follow_url_func = function(url)
+    --   -- Open the URL in the default web browser.
+    --   if vim.loop.os_uname().sysname == 'Darwin' then
+    --     vim.fn.jobstart { 'open', url } -- Mac OS
+    --   else
+    --     vim.fn.jobstart { 'xdg-open', url } -- Linux
+    --   end
+    -- end,
   },
 
   keys = {
