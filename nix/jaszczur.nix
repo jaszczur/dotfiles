@@ -158,4 +158,9 @@ profile: {
     enableZshIntegration = true;
     enableFishIntegration = true;
   };
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = ["--hidden"];
+  };
 }

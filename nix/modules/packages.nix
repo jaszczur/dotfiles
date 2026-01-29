@@ -31,7 +31,6 @@ with pkgs; [
   pnpm
   postgresql
   pueue
-  ripgrep
   starship
   tenv
   uv
