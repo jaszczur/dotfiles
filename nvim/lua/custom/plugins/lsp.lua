@@ -373,8 +373,8 @@ return {
           -- single_file_support = false,
           -- autostart = false,
           workspace_required = true,
-          -- root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
-          root_markers = { 'package-lock.json', 'pnpm-lock.yaml' }, -- root_dir is defined in nvim-lspconfig so root_markers will be ignored
+          root_dir = require('lspconfig').util.root_pattern('package-lock.json', 'pnpm-lock.yaml'),
+          -- root_markers = { 'package-lock.json', 'pnpm-lock.yaml' }, -- root_dir is defined in nvim-lspconfig so root_markers will be ignored
         },
         kotlin_lsp = {},
         ocamllsp = {

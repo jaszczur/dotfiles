@@ -56,7 +56,7 @@ return {
         -- Change the default chat adapter
         chat = {
           adapter = 'copilot',
-          model = 'claude-3.7-sonnet',
+          model = 'claude-4.5-sonnet',
         },
         inline = {
           adapter = 'copilot',
